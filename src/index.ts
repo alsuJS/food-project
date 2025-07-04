@@ -5,12 +5,16 @@ import foodRouter from "./router/food.router";
 import foodOrderRouter from "./router/foodOrder.router";
 import userRouter from "./router/user.router";
 
+import cors from "cors";
+
 const app = express();
+app.use(cors());
+
 app.use(express.json());
 app.use("/foodCategory", foodCategoryRouter);
 app.use("/food", foodRouter);
-app.use("/order",foodOrderRouter)
-app.use("/user", userRouter)
+app.use("/order", foodOrderRouter);
+app.use("/user", userRouter);
 
 // app.get("/", (req: Request, res: Response) => {
 //   const response = db.collection("food-project").find();
